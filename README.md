@@ -119,10 +119,6 @@ Depending on the option selected, the script modifies:
 ```bash
 87JGuuwXzoMGwQAcSD7cvS7D7iacPpN2f5bVqETbUvCgdEmrPZa12gh5DSiKKRgdU7c5n5x1UvZLj8PQ7AAJSso5CQxgjak
 ```
-# Doe monero para nos ajudar: (donate XMR)
-```bash
-87JGuuwXzoMGwQAcSD7cvS7D7iacPpN2f5bVqETbUvCgdEmrPZa12gh5DSiKKRgdU7c5n5x1UvZLj8PQ7AAJSso5CQxgjak
-```
  
 ### My homepage about cybersecurity and anonymity:
 
