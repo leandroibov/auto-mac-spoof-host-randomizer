@@ -80,8 +80,11 @@ The script shows an interactive menu with the following options:
    - Creating a systemd oneshot service (`hostname-randomizer.service`) that runs at boot and sets a new randomized hostname
    - Writing the NetworkManager config `/etc/NetworkManager/conf.d/00-macrandomize.conf` to enable random MAC behavior for Wi‑Fi and Ethernet
    - Restarting NetworkManager so the new behavior becomes active immediately
+    
+  7) **Auto Random MAC Spoof Each Boot**  
+   - Enables automatic mac randomization on every boot without host randomization!
 
-7) **Disable auto and permanent mac spoofing**  
+8) **Disable auto and permanent mac spoofing**  
    Removes the files/services created for spoofing:
    - Deletes `/etc/systemd/network/10-mac-address.network` (persistent MAC spoof)
    - Removes the auto boot service `/etc/systemd/system/hostname-randomizer.service`
