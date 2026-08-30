@@ -523,6 +523,29 @@ echo "Auto mac spoofing and hostname randomization each boot activated!"
 sudo steamos-readonly enable
 }
 
+auto_spoofing_just_mac() {
+sudo steamos-readonly disable
+remove-mac-spoof
+# Generate a random MAC address
+sudo cat > /etc/NetworkManager/conf.d/00-macrandomize.conf << 'INNEROFF'
+[device]
+wifi.scan-rand-mac-address=yes
+
+[connection]
+wifi.cloned-mac-address=random
+ethernet.cloned-mac-address=random
+connection.stable-id=${CONNECTION}/${BOOT}
+INNEROFF
+
+#restart network manager
+echo "Restart Network Manager"
+systemctl restart NetworkManager
+echo "Auto mac spoofing each boot activated! (no hostname randomization)"
+sleep 4
+sudo steamos-readonly enable
+}
+
+
 # =========================================
 
 # MAIN MENU
@@ -541,12 +564,13 @@ show-menu()
         echo "  4) Permanent MAC Spoof (random mac)"
         echo "  5) Permanent Random Hostname + Manual MAC Spoof"
         echo "  6) Auto Random MAC Spoof and Random Hostname Each Boot"
-        echo "  7) Disable auto and permanent mac spoofing"
+        echo "  7) Auto Random MAC Spoof Each Boot"
+        echo "  8) Disable auto and permanent mac spoofing"
         echo "  0) Exit"
         echo ""
         echo "=============================================="
         echo ""
-        read -rp "Select an option [0-7]: " OPTION
+        read -rp "Select an option [0-8]: " OPTION
 
         case $OPTION in
             1) random-hostname ;;
@@ -555,9 +579,10 @@ show-menu()
             4) random-mac ;;
             5) mac-spoof-random-all ;;
             6) auto_spoofing ;;
-            7) remove-mac-spoof ;;
+            7) auto_spoofing_just_mac ;;
+            8) remove-mac-spoof ;;
             0) echo "Exiting..."; sleep 2; exit 0 ;;
-            *) echo "❌ Invalid option! Please choose 0-7."; sleep 2 ;;
+            *) echo "❌ Invalid option! Please choose 0-8."; sleep 2 ;;
         esac
     done
 }
