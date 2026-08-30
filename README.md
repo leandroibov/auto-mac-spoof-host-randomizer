@@ -82,9 +82,11 @@ The script shows an interactive menu with the following options:
    - Restarting NetworkManager so the new behavior becomes active immediately
     
   7) **Auto Random MAC Spoof Each Boot**  
-   - Enables automatic mac randomization on every boot without host randomization!
+   Enables automatic mac randomization on every boot without host randomization!
 
-8) **Disable auto and permanent mac spoofing**  
+
+
+9) **Disable auto and permanent mac spoofing**  
    Removes the files/services created for spoofing:
    - Deletes `/etc/systemd/network/10-mac-address.network` (persistent MAC spoof)
    - Removes the auto boot service `/etc/systemd/system/hostname-randomizer.service`
